@@ -1,0 +1,101 @@
+<hello-framework
+  [name]="name"
+  [version]="version"
+  (release)="onVersionRelease()"></hello-framework>
+
+
+<div class="class1">
+  <h4>Reactive Forms</h4>
+    <form [formGroup]="myForm">
+        First Name : 
+
+        <input type="text" formControlName="firstname">
+        <span class="error"
+              *ngIf="myForm.controls.firstname.touched && 
+                     myForm.controls.firstname.invalid && 
+                     myForm.controls.firstname.errors.required">
+            First Name Can't Be Blank            
+        </span>
+        <span class="error"
+              *ngIf="myForm.controls.firstname.touched && 
+                     myForm.controls.firstname.invalid && 
+                     myForm.controls.firstname.errors.minlength">
+            First Name Should Have Min 3 Characters            
+        </span>
+        <span class="error"
+              *ngIf="myForm.controls.firstname.touched && 
+                     myForm.controls.firstname.invalid && 
+                     myForm.controls.firstname.errors.pattern">
+            First Name Should Have Only Alphabets  
+        </span> <br/>
+
+        Last Name : 
+
+        <input type="text" formControlName="lastname">
+        <span class="error"
+              *ngIf="myForm.controls.lastname.touched && 
+                     myForm.controls.lastname.invalid && 
+                     myForm.controls.lastname.errors.required">
+            Last Name Can't Be Blank            
+        </span>
+        <span class="error"
+              *ngIf="myForm.controls.lastname.touched && 
+                     myForm.controls.lastname.invalid && 
+                     myForm.controls.lastname.errors.minlength">
+            Last Name Should Have Min 3 Characters            
+        </span>
+        <span class="error"
+              *ngIf="myForm.controls.lastname.touched && 
+                     myForm.controls.lastname.invalid && 
+                     myForm.controls.lastname.errors.pattern">
+            Last Name Should Have Only Alphabets  
+        </span> <br>
+        Email:
+        <input type="text" formControlName="email">
+        <span class="error"
+              *ngIf="myForm.controls.email.touched && 
+                     myForm.controls.email.invalid && 
+                     myForm.controls.email.errors.required">
+            Email Can't Be Blank            
+        </span>
+       
+        <span class="error"
+              *ngIf="myForm.controls.email.touched && 
+                     myForm.controls.email.invalid && 
+                     myForm.controls.email.errors.pattern">
+            Email is not valid 
+        </span> <br/>
+        Amount:
+        <input type="text" formControlName="amount">
+        <span class="error"
+              *ngIf="myForm.controls.amount.touched && 
+                     myForm.controls.amount.invalid && 
+                     myForm.controls.amount.errors.required">
+                     Amount Can't Be Blank            
+        </span> <br/>
+        Gender : 
+        <input type="radio" formControlName="gender" value="Male">Male
+        <input type="radio" formControlName="gender" value="Fe-Male">Fe-Male
+        <span class="error"
+              *ngIf="myForm.controls.gender.touched && 
+                     myForm.controls.gender.invalid && 
+                     myForm.controls.gender.errors.required">
+            Please select gender          
+        </span><br/>
+        Country: 
+        <select formControlName="country">
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Japan</option>
+        </select>
+        <span class="error"
+              *ngIf="myForm.controls.country.touched && 
+                     myForm.controls.country.invalid && 
+                     myForm.controls.country.errors.required">
+            Please select country          
+        </span><br/>
+        <input type="submit" value="Submit" (click)="onRegisterClick()"><br/>
+        <div [innerHTML]="msg"></div>
+    </form>
+</div>

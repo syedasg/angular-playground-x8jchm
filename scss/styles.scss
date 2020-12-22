@@ -1,0 +1,13 @@
+body {
+  font-family: Roboto, Arial, sans-serif;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+input.ng-valid.ng-touched {
+  border: 2px solid green;
+}
+.error {
+  color: red;
+}
